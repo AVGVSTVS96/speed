@@ -1,0 +1,13 @@
+[Unit]
+Description=speed: output speed of every Claude Code and Codex model response
+After=network-online.target tailscaled.service
+
+[Service]
+WorkingDirectory=%h/Developer/speed
+ExecStart=/usr/bin/bun src/cli.ts serve
+Restart=on-failure
+RestartSec=2
+MemoryMax=256M
+
+[Install]
+WantedBy=default.target
