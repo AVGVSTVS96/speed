@@ -13,7 +13,7 @@ export const serve = (port = Number(Bun.env["SPEED_PORT"] ?? 4318)) => {
   const save = saver(open());
   const track = tracker();
   const server = Bun.serve({
-    hostname: "0.0.0.0",
+    hostname: Bun.env["SPEED_HOST"] ?? "0.0.0.0",
     port,
     async fetch(req, self) {
       if (!local(self.requestIP(req)?.address ?? "")) return new Response(null, { status: 403 });

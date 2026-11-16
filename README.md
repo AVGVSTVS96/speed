@@ -79,7 +79,7 @@ exporter = { otlp-http = { endpoint = "http://localhost:4318/v1/logs", protocol 
 
 New sessions pick it up. Anything that embeds them reports too: the Claude Agent SDK, and apps like T3 Code that run `codex app-server`, once that process restarts.
 
-`speed serve` accepts reports from this machine and from your Tailscale network, so one collector can cover all your machines: point their endpoints at its tailnet name.
+`speed serve` accepts reports from this machine and from your Tailscale network, so one collector can cover all your machines: point their endpoints at its tailnet name. `SPEED_HOST` sets the address it listens on (default `0.0.0.0`), like `127.0.0.1` behind a proxy.
 
 ## Use
 
